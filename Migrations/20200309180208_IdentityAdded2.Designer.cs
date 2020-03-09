@@ -4,14 +4,16 @@ using InlibrisVeritas.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InlibrisVeritas.Migrations
 {
     [DbContext(typeof(BloggDbContext))]
-    partial class BloggDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200309180208_IdentityAdded2")]
+    partial class IdentityAdded2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

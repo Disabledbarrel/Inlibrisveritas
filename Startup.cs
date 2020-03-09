@@ -50,6 +50,7 @@ namespace InlibrisVeritas
             app.UseNodeModules();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
