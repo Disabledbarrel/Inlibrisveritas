@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InlibrisVeritas.Models;
+using InlibrisVeritas.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InlibrisVeritas.Controllers
@@ -19,7 +20,10 @@ namespace InlibrisVeritas.Controllers
         [HttpGet("Poster")]
         public IActionResult Index()
         {
-            return View();
+            PostListViewModel postListViewModel = new PostListViewModel();
+            postListViewModel.Posts = _postRepository.AllPosts;
+
+            return View(postListViewModel);
         }
     }
 }

@@ -14,5 +14,28 @@ namespace InlibrisVeritas.Data
         }
 
         public DbSet<Post> Posts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Seed blogposts
+            modelBuilder.Entity<Post>().HasData(new Post
+            {
+                PostId = 1,
+                Title = "Möss och människor",
+                Content = "Här kommer lite innehåll i inlägget",
+                ImageUrl = "http://studenter.miun.se/~ella1800/dt102g/img/brazil.jpg",
+                Created = DateTime.UtcNow
+            });
+            modelBuilder.Entity<Post>().HasData(new Post
+            {
+                PostId = 2,
+                Title = "Aniara",
+                Content = "Här kommer lite innehåll i inlägget",
+                ImageUrl = "http://studenter.miun.se/~ella1800/dt102g/img/brazil.jpg",
+                Created = DateTime.UtcNow
+            });
+        }
     }
 }
