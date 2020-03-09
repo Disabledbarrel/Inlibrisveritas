@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InlibrisVeritas.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +16,9 @@ namespace InlibrisVeritas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Registrerar egen service
+            services.AddScoped<IPostRepository, PostRepository>();
+
             // Registrerar services genom dependency injection
             services.AddControllersWithViews(); // Lägger till MVC-mönstrer
         }
