@@ -1,7 +1,22 @@
-﻿
+﻿@model IEnumerable<Post>
+
 @{
     ViewData["Title"] = "Poster";
 }
 
-<h1>Index</h1>
+<h1>Inlägg</h1>
+<div class="">
+    @foreach (var p in Model)
+    {
+        <div class="thumbnail">
+            <img src="@p.ImageUrl" alt="bloggbild" />
+            <div class="caption">
+                <h3 class="product-title">@p.Title</h3>
+                <p>@p.Content</p>
+                <p>@p.Created</p>
+            </div>
+        </div>
+
+    }
+</div>
 

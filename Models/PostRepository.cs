@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InlibrisVeritas.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,11 +8,24 @@ namespace InlibrisVeritas.Models
 {
     public class PostRepository : IPostRepository
     {
-        public IEnumerable<Post> AllPosts => throw new NotImplementedException();
+        private readonly BloggDbContext _bloggDbContext;
+
+        public PostRepository(BloggDbContext bloggDbContext)
+        {
+            _bloggDbContext = bloggDbContext;
+        }
+
+        public IEnumerable<Post> AllPosts
+        {
+            get
+            {
+                return _bloggDbContext.Posts;
+            }
+        }
 
         public Post GetPostById(int postId)
         {
-            throw new NotImplementedException();
+            return _bloggDbContext.Posts.FirstOrDefault(p => p.PostId == postId);
         }
     }
 }
