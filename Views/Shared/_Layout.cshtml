@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Quattrocento+Sans&display=swap"
+          rel="stylesheet" />
+
+    <!-- Ikoner -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="logo">United Readers</h1>
+            <nav id="mainnav">
+                <a href="#" id="toggle"><i class="fas fa-bars"></i></a>
+                <ul id="myLinks">
+                    <li class="nav-item">
+                        <a href="#" class="link-1">Hem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="link-1">Om oss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="link-1">Blogg</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="section-a">
+            <div>
+                @RenderBody()
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div id="footer-one">
+                <i class="fas fa-envelope"></i> <a href="#">readers@united.se</a>
+            </div>
+            <div id="footer-two">
+                <i class="fas fa-map"></i> Läsarvägen 1, 234 56 Bokstaden
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/main.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InlibrisVeritas", "InlibrisVeritas.csproj", "{18F15E2B-B64B-4C68-9DC9-EBC01BBCD09E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18F15E2B-B64B-4C68-9DC9-EBC01BBCD09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F15E2B-B64B-4C68-9DC9-EBC01BBCD09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F15E2B-B64B-4C68-9DC9-EBC01BBCD09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F15E2B-B64B-4C68-9DC9-EBC01BBCD09E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DFCB47E-271C-41E1-BF3F-18D0CC3FD558}
+	EndGlobalSection
+EndGlobal
