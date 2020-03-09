@@ -25,5 +25,23 @@ namespace InlibrisVeritas.Controllers
 
             return View(postListViewModel);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        /*[HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind(PostId,Title,Content,ImageUrl, Created")] Album album)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(album);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ArtistID"] = new SelectList(_context.Artist, "ID", "ID", album.ArtistID);
+            return View(album);
+        }*/
     }
 }

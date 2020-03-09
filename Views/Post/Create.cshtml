@@ -1,0 +1,29 @@
+﻿@model InlibrisVeritas.Models.Post
+
+@{
+    ViewData["Title"] = "Skapa blogginlägg";
+}
+
+<h2>Skapa blogginlägg</h2>
+
+<div class="form-div">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly"></div>
+        <label asp-for="Title">Rubrik:</label><br />
+        <input asp-for="Title" /><br />
+        <span asp-validation-for="Title" class="text-danger"></span>
+
+        <label asp-for="ImageUrl">Bildlänk:</label><br />
+        <input asp-for="ImageUrl" /><br />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+        <label asp-for="Content">Inlägg:</label><br />
+        <textarea asp-for="Content" rows="10"
+                  placeholder="Skriv ditt inlägg här"></textarea><br />
+        <span asp-validation-for="Content" class="text-danger"></span>
+
+        <input type="submit" value="Spara" class="btn" />
+
+    </form>
+</div>
+
