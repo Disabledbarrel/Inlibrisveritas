@@ -27,9 +27,6 @@ namespace InlibrisVeritas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Registrerar egen service
-            services.AddScoped<IPostRepository, PostRepository>();
-
             // Registrerar services genom dependency injection
             services.AddControllersWithViews(); // Lägger till MVC-mönstrer
 
