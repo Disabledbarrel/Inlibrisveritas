@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using InlibrisVeritas.Data;
 using InlibrisVeritas.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InlibrisVeritas.Controllers
 {
@@ -23,12 +24,16 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts
+        [HttpGet("Blogg")]
         public async Task<IActionResult> Index()
         {
             var bloggDbContext = _context.Posts.Include(p => p.User);
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.userId = user.Id.ToString();
             return View(await bloggDbContext.ToListAsync());
         }
-
+        [HttpGet("Inlägg")]
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -49,6 +54,8 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Create
+        [HttpGet("Skapa")]
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
@@ -60,12 +67,14 @@ namespace InlibrisVeritas.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("PostId,Title,Content,ImageUrl,Created,UserId")] Post post)
         {
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 post.UserId = user.Id.ToString();
+                post.Created = DateTime.Now;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -75,6 +84,8 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Edit/5
+        [HttpGet("Uppdatera")]
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,11 +94,14 @@ namespace InlibrisVeritas.Controllers
             }
 
             var post = await _context.Posts.FindAsync(id);
-            if (post == null)
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            
+            if (post == null || post.UserId != user.Id.ToString())
             {
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", post.UserId);
+            
             return View(post);
         }
 
@@ -96,6 +110,7 @@ namespace InlibrisVeritas.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Content,ImageUrl,Created,UserId")] Post post)
         {
             if (id != post.PostId)
@@ -128,6 +143,8 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Delete/5
+        [HttpGet("Radera")]
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,7 +155,8 @@ namespace InlibrisVeritas.Controllers
             var post = await _context.Posts
                 .Include(p => p.User)
                 .FirstOrDefaultAsync(m => m.PostId == id);
-            if (post == null)
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (post == null || post.UserId != user.Id.ToString())
             {
                 return NotFound();
             }
@@ -149,6 +167,7 @@ namespace InlibrisVeritas.Controllers
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Posts.FindAsync(id);
