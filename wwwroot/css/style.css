@@ -178,7 +178,9 @@ input[type="submit"] {
     border: none;
     color: #ffffff;
 }
-
+.text-danger {
+    color: red;
+}
 /* Footer */
 .main-footer {
     background-color: #333333;
@@ -197,6 +199,9 @@ input[type="submit"] {
     .main-footer i {
         color: #ffffff;
         font-weight: 100;
+    }
+    email {
+        color: #ffffff;
     }
 
 /* Mediaquerie för större skärmar*/

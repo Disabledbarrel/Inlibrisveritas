@@ -1,6 +1,10 @@
-﻿
+﻿@model IndexModel
 @{
     ViewData["Title"] = "Poster";
+}
+@section Scripts {
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 }
 
 <div class="parallax"></div>
@@ -19,15 +23,16 @@
     <div class="concept-text">
         <h2>Vårt koncept</h2>
         <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem
-            aperiam dolore iure itaque, veritatis odit repudiandae
-            consequuntur repellendus expedita tenetur corporis commodi
-            voluptatum minus rerum. Neque quo odio possimus cupiditate vel
-            exercitationem animi. Cumque quo ea odio quas fugiat placeat?
+            Vi tycker om böcker - därför har vi en bokcirkel. Vi träffas en gång i månaden och diskuterar det vi läst.
+            Inga krav, inga måsten och inga påhopp - bara böcker, vänner och vin.
         </p>
         <p>
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            Reglerna är enkla. Varje medlem presenterar tre förslag på böcker till varje sammankomst i en bestämd turordning,
+            sedan röstar de deltagande om vilken bok de vill läsa. I de fall det blir jämnt så har den som presenterat böckerna rätt att bestämma.
+            I fall av sjukdom eller annat förhinder får man avlägga en telefon- eller sms-röst.
+        </p>
+        <p>
+            <a href="https://www.instagram.com/inlibrisveritasinvinovita/"><i class="fab fa-instagram"></i></a>
         </p>
     </div>
 </div>
@@ -36,16 +41,23 @@
     <div class="form-div">
         <h2>Kontakta oss</h2>
         <form id="myform" method="post">
-            <input type="text" placeholder="Fullständigt namn" /><br />
+            <div asp-validation-summary="ModelOnly"></div>
 
-            <input type="email" placeholder="Din e-post" /><br />
+            <span asp-validation-for="Name" class="text-danger"></span><br />
+            <input asp-for="Name" placeholder="Fullständigt namn" /><br />
 
-            <input type="text" placeholder="Ämne" /><br />
+            <span asp-validation-for="Email" class="text-danger"></span><br />
+            <input type="email" asp-for="Email" placeholder="Din e-post" /><br />
 
-            <textarea rows="8"
+            <span asp-validation-for="Subject" class="text-danger"></span><br />
+            <input type="text" asp-for="Subject" placeholder="Ämne" /><br />
+
+            <span asp-validation-for="Message" class="text-danger"></span><br />
+            <textarea rows="8" asp-for="Message"
                       placeholder="Skriv ditt meddelande här"></textarea><br />
 
-            <input type="submit" value="Skicka" class="btn" />
+            <input type="submit" value="Skicka" class="btn" /><br />
+            <div class="text-success">@ViewBag.UserMessage</div>
         </form>
     </div>
 </div>

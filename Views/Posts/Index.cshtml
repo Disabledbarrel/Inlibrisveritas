@@ -17,9 +17,9 @@
             <img class="blogg-img" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="bokbild" />
             <div class="blogg-text">
                 <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                <h4>@Html.DisplayFor(modelItem => item.Created)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                <h4>Skriven av:  @Html.DisplayFor(modelItem => item.User.UserName)</h4>
-                <h5>Datum:  @Html.DisplayFor(modelItem => item.Created)</h5>
+                <h5>Skriven av:  @Html.DisplayFor(modelItem => item.User.UserName)</h5>
                 @if (SignInManager.IsSignedIn(User) && item.UserId == @ViewBag.userId)
                 {
                     <div><a asp-action="Edit" asp-route-id="@item.PostId">Uppdatera</a></div>

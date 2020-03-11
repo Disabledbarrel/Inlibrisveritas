@@ -13,14 +13,20 @@ namespace InlibrisVeritas.Models
         public int PostId { get; set; }
         [DisplayName("Rubrik")]
         public string Title { get; set; }
+
         [DisplayName("Innehåll")]
         public string Content { get; set; }
+
         [DisplayName("Bild")]
         public string ImageUrl { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Skapad")]
         public DateTime Created { get; set; }
+
         [DisplayName("Skriven av")]
         public string UserId { get; set; }
+
         public virtual IdentityUser User { get; set; }
 
 }

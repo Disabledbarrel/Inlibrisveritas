@@ -29,8 +29,11 @@ namespace InlibrisVeritas.Controllers
         {
             var bloggDbContext = _context.Posts.Include(p => p.User);
 
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            ViewBag.userId = user.Id.ToString();
+            if(User.Identity.Name != null) {
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.userId = user.Id.ToString();
+            }
+            
             return View(await bloggDbContext.ToListAsync());
         }
         [HttpGet("Inlägg")]
