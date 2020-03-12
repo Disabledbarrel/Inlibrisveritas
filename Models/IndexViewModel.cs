@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InlibrisVeritas.Models
 {
-    public class IndexModel
+    public class IndexViewModel
     {
         // Properties
         [Required(ErrorMessage = "Fältet måste vara ifyllt")]

@@ -9,31 +9,34 @@
     ViewData["Title"] = "Blogg";
 }
     
-    <div class="parallax"></div>
     <div class="blogg-div">
         <h2>Blogginlägg</h2>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="new-post"> <a asp-action="Create">Skriv nytt inlägg</a></div>
+        }
         @foreach (var item in Model)
         {
+        <div class="blogg-text">
+            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+            <h4>@Html.DisplayFor(modelItem => item.Created)</h4>
+
             <img class="blogg-img" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="bokbild" />
-            <div class="blogg-text">
-                <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-                <h4>@Html.DisplayFor(modelItem => item.Created)</h4>
-                <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                <h5>Skriven av:  @Html.DisplayFor(modelItem => item.User.UserName)</h5>
+
+            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+            <h5>Skriven av:  @Html.DisplayFor(modelItem => item.User.UserName)</h5>
+
+            <section>
+                <div><a asp-action="Details" asp-route-id="@item.PostId">Se inlägg</a></div>
                 @if (SignInManager.IsSignedIn(User) && item.UserId == @ViewBag.userId)
                 {
                     <div><a asp-action="Edit" asp-route-id="@item.PostId">Uppdatera</a></div>
-                    <div><a asp-action="Delete" asp-route-id="@item.PostId">Delete</a></div>
+                    <div><a asp-action="Delete" asp-route-id="@item.PostId">Radera</a></div>
                 }
-                <div><a asp-action="Details" asp-route-id="@item.PostId">Se inlägg</a></div>
-            </div>
-        }
+            </section>
 
-        @if (SignInManager.IsSignedIn(User))
-        {
-            <div> <a asp-action="Create">Skriv nytt inlägg</a></div>
+        </div>
         }
 
     </div>
-    <p>@ViewBag.userId</p>
 

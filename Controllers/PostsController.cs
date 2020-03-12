@@ -87,7 +87,7 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Edit/5
-        [HttpGet("Uppdatera")]
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -125,6 +125,9 @@ namespace InlibrisVeritas.Controllers
             {
                 try
                 {
+                    var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                    post.UserId = user.Id.ToString();
+                    post.Created = DateTime.Now;
                     _context.Update(post);
                     await _context.SaveChangesAsync();
                 }
@@ -146,7 +149,7 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Delete/5
-        [HttpGet("Radera")]
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {

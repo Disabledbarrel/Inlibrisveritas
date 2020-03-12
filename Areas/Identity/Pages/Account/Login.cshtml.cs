@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 
 namespace InlibrisVeritas.Areas.Identity.Pages.Account
 {
@@ -47,13 +48,15 @@ namespace InlibrisVeritas.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [DisplayName("E-post")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [DisplayName("Lösenord")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Kom ihåg mig")]
             public bool RememberMe { get; set; }
         }
 
