@@ -93,6 +93,15 @@ nav ul {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.parallax-blogg {
+    background-image: url("../img/reading.jpg");
+    opacity: 0.7;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: 70% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .welcome-div, .blogg-div {
     text-align: center;
@@ -252,6 +261,14 @@ input[type="submit"] {
 
     .parallax {
         background-image: url("../img/background.jpg");
+        min-height: 620px;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 50% 30%;
+        background-size: cover;
+    }
+    .parallax-blogg {
+        background-image: url("../img/reading.jpg");
         min-height: 620px;
         background-attachment: fixed;
         background-repeat: no-repeat;

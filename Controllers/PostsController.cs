@@ -57,7 +57,7 @@ namespace InlibrisVeritas.Controllers
         }
 
         // GET: Posts/Create
-        [HttpGet("Skapa")]
+        [HttpGet]
         [Authorize]
         public IActionResult Create()
         {

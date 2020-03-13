@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using InlibrisVeritas.Models;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Manage.Internal;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mail;
 using System.Net;
 
 namespace InlibrisVeritas.Controllers
