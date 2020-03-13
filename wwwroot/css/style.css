@@ -102,6 +102,15 @@ nav ul {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.parallax-about {
+    background-image: url("../img/books.jpg");
+    opacity: 0.7;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: 70% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .welcome-div, .blogg-div {
     text-align: center;
@@ -162,6 +171,9 @@ nav ul {
         font-family: "Poiret One", cursive;
         font-weight: 100;
         padding: 10px;
+    }
+    .concept-text p {
+        margin-bottom: 10px;
     }
 
     .concept-text i {
@@ -225,6 +237,27 @@ input[type="submit"] {
 .back a:hover, .back a:hover:visited {
     text-decoration: underline;
 }
+
+/* Sektion C*/
+.section-c h3 {
+    font-family: "Poiret One", cursive;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+div.polaroid {
+    width: 80%;
+    background-color: #e1f4f3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 auto 25px auto;
+}
+
+div.member-info {
+    text-align: center;
+    padding: 10px 20px;
+    font-family: "Poiret One", cursive;
+}
 /* Footer */
 .main-footer {
     background-color: #333333;
@@ -232,6 +265,7 @@ input[type="submit"] {
     text-align: center;
     padding: 50px;
     color: #ffffff;
+    margin-top: 10px;
 }
 
     .main-footer a {
@@ -275,7 +309,14 @@ input[type="submit"] {
         background-position: 50% 30%;
         background-size: cover;
     }
-
+    .parallax-about {
+        background-image: url("../img/books.jpg");
+        min-height: 620px;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 50% 30%;
+        background-size: cover;
+    }
     /* Header*/
     .header {
         grid-column: 1/5;
@@ -462,6 +503,18 @@ input[type="submit"] {
         grid-column: 1/5;
         text-align: center;
         font-size: 2em;
+    }
+
+    /* Sektion C*/
+    #members {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 10px 70px 10px 70px;
+    }
+   
+    div.polaroid {
+        width: 60%;
+        margin: 10px auto 10px auto;
     }
 
     /* Footer */

@@ -85,5 +85,10 @@ namespace InlibrisVeritas.Controllers
             ViewBag.UserMessage = "E-post skickat";
             return View();
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }
