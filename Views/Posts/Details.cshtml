@@ -11,9 +11,9 @@
             <h3>
                 @Html.DisplayFor(model => model.Title)
             </h3>
-            <p>
-                @Html.DisplayFor(model => model.Content)
-            </p>
+
+                @Html.Raw(Model.Content)
+
             <h4>
                 @Html.DisplayNameFor(model => model.ImageUrl)
             </h4>

@@ -94,7 +94,7 @@ nav ul {
     background-size: cover;
 }
 .parallax-blogg {
-    background-image: url("../img/reading.jpg");
+    background-image: url("../img/reading2.jpg");
     opacity: 0.7;
     min-height: 500px;
     background-attachment: fixed;
@@ -313,7 +313,7 @@ div.member-info {
         background-size: cover;
     }
     .parallax-blogg {
-        background-image: url("../img/reading.jpg");
+        background-image: url("../img/reading2.jpg");
         min-height: 620px;
         background-attachment: fixed;
         background-repeat: no-repeat;
