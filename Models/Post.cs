@@ -12,15 +12,15 @@ namespace InlibrisVeritas.Models
     {
         public int PostId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Fältet måste vara ifyllt")]
         [DisplayName("Rubrik")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Fältet måste vara ifyllt")]
         [DisplayName("Innehåll")]
         public string Content { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Fältet måste vara ifyllt")]
         [DisplayName("Bildlänk")]
         public string ImageUrl { get; set; }
 
