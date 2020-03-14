@@ -23,17 +23,17 @@
 
             <img class="blogg-img" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="bokbild" />
 
-            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+            @Html.Raw(item.Content)
             <h5>Skriven av:  @Html.DisplayFor(modelItem => item.User.UserName)</h5>
 
-            <section>
+            <div class="blogg-details">
                 <div><a asp-action="Details" asp-route-id="@item.PostId">Se inlägg</a></div>
                 @if (SignInManager.IsSignedIn(User) && item.UserId == @ViewBag.userId)
                 {
                     <div><a asp-action="Edit" asp-route-id="@item.PostId">Uppdatera</a></div>
                     <div><a asp-action="Delete" asp-route-id="@item.PostId">Radera</a></div>
                 }
-            </section>
+            </div>
 
         </div>
         }

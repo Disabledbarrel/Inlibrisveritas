@@ -11,13 +11,17 @@ namespace InlibrisVeritas.Models
     public class Post
     {
         public int PostId { get; set; }
+
+        [Required]
         [DisplayName("Rubrik")]
         public string Title { get; set; }
 
+        [Required]
         [DisplayName("Innehåll")]
         public string Content { get; set; }
 
-        [DisplayName("Bild")]
+        [Required]
+        [DisplayName("Bildlänk")]
         public string ImageUrl { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
