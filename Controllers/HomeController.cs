@@ -33,7 +33,7 @@ namespace InlibrisVeritas.Controllers
                 String To = "kontakt@inlibrisveritas.se";
 
                 // Amazon SES SMTP användare
-                String SmtpUser = "user";
+                String SmtpUser = "användare";
 
                 // smtp_password
                 String SmtpPassword = "password";

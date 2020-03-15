@@ -50,7 +50,6 @@ namespace InlibrisVeritas
 
             // Tillagda Middleware
             app.UseStaticFiles();
-            //Sapp.UseNodeModules();
 
             app.UseRouting();
             app.UseAuthentication();
