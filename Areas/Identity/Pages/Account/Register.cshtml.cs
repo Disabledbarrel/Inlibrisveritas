@@ -62,7 +62,7 @@ namespace InlibrisVeritas.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        /* public async Task OnGetAsync(string returnUrl = null)
+         public async Task OnGetAsync(string returnUrl = null)
          {
              ReturnUrl = returnUrl;
              ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -109,8 +109,8 @@ namespace InlibrisVeritas.Areas.Identity.Pages.Account
 
              // If we got this far, something failed, redisplay form
              return Page();
-         }*/
+         }
 
-        public IActionResult OnGet() => RedirectToPage("/Account/Login");
+     
     }
 }
