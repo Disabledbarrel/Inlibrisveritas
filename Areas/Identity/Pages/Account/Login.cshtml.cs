@@ -46,12 +46,12 @@ namespace InlibrisVeritas.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required (ErrorMessage = "Fältet måste vara ifyllt")]
+            [EmailAddress(ErrorMessage = "Felaktig e-post")]
             [DisplayName("E-post")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Fältet måste vara ifyllt")]
             [DataType(DataType.Password)]
             [DisplayName("Lösenord")]
             public string Password { get; set; }
@@ -102,7 +102,7 @@ namespace InlibrisVeritas.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Ogiltig inloggning");
                     return Page();
                 }
             }
