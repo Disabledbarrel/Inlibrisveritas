@@ -21,7 +21,7 @@ namespace InlibrisVeritas.Models
         public string Content { get; set; }
 
         [Required(ErrorMessage = "Fältet måste vara ifyllt")]
-        [DisplayName("Bildlänk")]
+        [DisplayName("Bild")]
         public string ImageUrl { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

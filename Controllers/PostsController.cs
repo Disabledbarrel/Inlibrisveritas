@@ -27,7 +27,7 @@ namespace InlibrisVeritas.Controllers
         [HttpGet("Blogg")]
         public async Task<IActionResult> Index()
         {
-            var bloggDbContext = _context.Posts.Include(p => p.User);
+            var bloggDbContext = _context.Posts.OrderByDescending(p => p.Created).Include(p => p.User);
 
             if(User.Identity.Name != null) {
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
